@@ -3,7 +3,7 @@ requires = ["setuptools>=61.0"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "my-python-package"
+name = "log-exceptions"
 version = "0.1.0"
 description = "My Python package"
 authors = [
@@ -27,8 +27,8 @@ license = "MIT"
 license-files = "LICENSE"
 
 [project.urls]
-Homepage = "https://github.com/lparrago/my-python-package"
-Issues = "https://github.com/lparrago/my-python-package/issues"
+Homepage = "https://github.com/lparrago/log-exceptions"
+Issues = "https://github.com/lparrago/log-exceptions/issues"
 
 [tool.setuptools.packages.find]
 where = ["src"]
@@ -37,11 +37,11 @@ where = ["src"]
 testpaths = ["tests"]
 
 [tool.towncrier]
-name = "my-python-package"
+name = "log-exceptions"
 filename = "CHANGELOG.md"
 directory = "news"
 title_format = "## {version} ({project_date})"
-issue_format = "[#{issue}](https://github.com/lparrago/my-python-package/issues/{issue})"
+issue_format = "[#{issue}](https://github.com/lparrago/log-exceptions/issues/{issue})"
 underlines = ["", "", ""]
 
     [[tool.towncrier.type]]
