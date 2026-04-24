@@ -1,0 +1,29 @@
+name: Release notes
+
+on:
+  pull_request:
+    types:
+      - opened
+      - synchronize
+      - reopened
+
+jobs:
+  check-fragment:
+    name: Check for release notes fragment
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+
+      - name: Install towncrier
+        run: pip install towncrier
+
+      - name: Check for release notes fragment
+        run: towncrier check --compare-with origin/main

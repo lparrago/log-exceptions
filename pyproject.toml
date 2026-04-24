@@ -1,0 +1,70 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "my-python-package"
+version = "0.1.0"
+description = "My Python package"
+authors = [
+  { name="Luis Alfonso Parra", email="lparrago+github@gmail.com" },
+]
+readme = "README.md"
+license = { file = "LICENSE" }
+requires-python = ">=3.8"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Programming Language :: Python :: 3.14",
+    "Operating System :: OS Independent",
+]
+license = "MIT"
+license-files = "LICENSE"
+
+[project.urls]
+Homepage = "https://github.com/lparrago/my-python-package"
+Issues = "https://github.com/lparrago/my-python-package/issues"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[tool.towncrier]
+name = "my-python-package"
+filename = "CHANGELOG.md"
+directory = "news"
+title_format = "## {version} ({project_date})"
+issue_format = "[#{issue}](https://github.com/lparrago/my-python-package/issues/{issue})"
+underlines = ["", "", ""]
+
+    [[tool.towncrier.type]]
+    directory = "feature"
+    name = "Features"
+    showcontent = true
+
+    [[tool.towncrier.type]]
+    directory = "bugfix"
+    name = "Bug Fixes"
+    showcontent = true
+
+    [[tool.towncrier.type]]
+    directory = "doc"
+    name = "Documentation"
+    showcontent = true
+
+    [[tool.towncrier.type]]
+    directory = "removal"
+    name = "Removals and Deprecations"
+    showcontent = true
+
+    [[tool.towncrier.type]]
+    directory = "other"
+    name = "Other changes"
+    showcontent = true
