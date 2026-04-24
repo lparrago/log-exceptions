@@ -10,7 +10,8 @@ authors = [
   { name="Luis Alfonso Parra", email="lparrago+github@gmail.com" },
 ]
 readme = "README.md"
-license = { file = "LICENSE" }
+license = "MIT"
+license-files = "LICENSE"
 requires-python = ">=3.8"
 classifiers = [
     "Programming Language :: Python :: 3",
@@ -23,8 +24,6 @@ classifiers = [
     "Programming Language :: Python :: 3.14",
     "Operating System :: OS Independent",
 ]
-license = "MIT"
-license-files = "LICENSE"
 
 [project.urls]
 Homepage = "https://github.com/lparrago/my-python-package"
