@@ -37,7 +37,7 @@ def log_exceptions(logger):
             try:
                 return obj(*args, **kwargs)
             except Exception as e:
-                logger.exception("%s", e)
+                logger.exception(str(e))
                 raise
 
         return wrapper
