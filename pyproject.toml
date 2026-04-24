@@ -10,8 +10,7 @@ authors = [
   { name="Luis Alfonso Parra", email="lparrago+github@gmail.com" },
 ]
 readme = "README.md"
-license = "MIT"
-license-files = ["LICENSE"]
+license = { text = "MIT" }
 requires-python = ">=3.8"
 classifiers = [
     "Programming Language :: Python :: 3",
