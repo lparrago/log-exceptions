@@ -26,6 +26,10 @@ def log_exceptions(logger):
             for name, method in obj.__dict__.items():
                 if inspect.isfunction(method):
                     setattr(obj, name, decorator(method))
+                elif isinstance(method, staticmethod):
+                    setattr(obj, name, staticmethod(decorator(method.__func__)))
+                elif isinstance(method, classmethod):
+                    setattr(obj, name, classmethod(decorator(method.__func__)))
             return obj
 
         @functools.wraps(obj)
