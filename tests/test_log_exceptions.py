@@ -125,3 +125,47 @@ class TestClassDecorator:
         c.increment()
         c.increment()
         assert c.count == 2
+
+    def test_staticmethod_exception_is_logged(self, mock_logger):
+        @log_exceptions(mock_logger)
+        class MyClass:
+            @staticmethod
+            def static_boom():
+                raise ValueError("error in staticmethod")
+
+        with pytest.raises(ValueError):
+            MyClass.static_boom()
+
+        mock_logger.exception.assert_called_once_with("error in staticmethod")
+
+    def test_staticmethod_no_exception_no_log(self, mock_logger):
+        @log_exceptions(mock_logger)
+        class MyClass:
+            @staticmethod
+            def static_add(a, b):
+                return a + b
+
+        assert MyClass.static_add(2, 3) == 5
+        mock_logger.exception.assert_not_called()
+
+    def test_classmethod_exception_is_logged(self, mock_logger):
+        @log_exceptions(mock_logger)
+        class MyClass:
+            @classmethod
+            def class_boom(cls):
+                raise RuntimeError("error in classmethod")
+
+        with pytest.raises(RuntimeError):
+            MyClass.class_boom()
+
+        mock_logger.exception.assert_called_once_with("error in classmethod")
+
+    def test_classmethod_no_exception_no_log(self, mock_logger):
+        @log_exceptions(mock_logger)
+        class MyClass:
+            @classmethod
+            def class_name(cls):
+                return cls.__name__
+
+        assert MyClass.class_name() == "MyClass"
+        mock_logger.exception.assert_not_called()
