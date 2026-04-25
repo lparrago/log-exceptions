@@ -23,7 +23,7 @@ def log_exceptions(logger):
 
     def decorator(obj):
         if inspect.isclass(obj):
-            for name, method in obj.__dict__.items():
+            for name, method in list(obj.__dict__.items()):
                 if inspect.isfunction(method):
                     setattr(obj, name, decorator(method))
                 elif isinstance(method, staticmethod):
