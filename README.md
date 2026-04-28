@@ -1,6 +1,6 @@
 # log-exceptions
 
-A Python decorator that automatically catches, logs, and re-raises exceptions — keeping your code clean while ensuring errors are never silently swallowed.
+A Python decorator that automatically catches, logs, and re-raises exceptions — ensuring exceptions are recorded in your log files and not only printed to the screen.
 
 ## Installation
 
